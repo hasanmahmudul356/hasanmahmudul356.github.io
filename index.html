@@ -40,9 +40,9 @@
     <script src="js/modernizr.custom.js"></script>
 </head>
 
-<body class="home">
-<!-- Live Style Switcher Starts - demo only -->
-<div id="switcher" class="">
+<body class="home" >
+<div id="Vue_component_wrapper">
+    <div id="switcher" class="">
     <div class="content-switcher">
         <h4>STYLE SWITCHER</h4>
         <ul>
@@ -82,8 +82,6 @@
     </div>
 </div>
 <div id="showSwitcher" class="styleSecondColor"><i class="fa fa-cog fa-spin"></i></div>
-<!-- Live Style Switcher Ends - demo only -->
-<!-- Header Starts -->
 <header class="header" id="navbar-collapse-toggle">
     <!-- Fixed Navigation Starts -->
     <ul class="icon-menu d-none d-lg-block revealator-slideup revealator-once revealator-delay1">
@@ -137,8 +135,6 @@
     </nav>
     <!-- Mobile Menu Ends -->
 </header>
-<!-- Header Ends -->
-<!-- Main Content Starts -->
 <section class="container-fluid main-container container-home p-0 revealator-slideup revealator-once revealator-delay1">
     <div class="color-block d-none d-lg-block"></div>
     <div class="row home-details-container align-items-center">
@@ -147,8 +143,8 @@
             <div>
                 <img src="img/img-mobile.jpg" class="img-fluid main-img-mobile d-none d-sm-block d-lg-none" alt="my picture" />
                 <h6 class="text-uppercase open-sans-font mb-0 d-block d-sm-none d-lg-block">hi there !</h6>
-                <h1 class="text-uppercase poppins-font"><span>I'm</span> steve milner</h1>
-                <p class="open-sans-font">I'm a Tunisian based web designer & front‑end developer focused on crafting clean & user‑friendly experiences, I am passionate about building excellent software that improves the lives of those around me.</p>
+                <h1 class="text-uppercase poppins-font"><span>I'm</span> {{getValue('header_name')}}</h1>
+                <p class="open-sans-font"> {{getValue('about_my_self')}}</p>
                 <a href="about.html" class="btn btn-about">more about me</a>
             </div>
         </div>
@@ -156,6 +152,7 @@
 </section>
 <!-- Main Content Ends -->
 
+</div>
 <!-- Template JS Files -->
 <script src="js/jquery-3.5.0.min.js"></script>
 <script src="js/styleswitcher.js"></script>
@@ -169,7 +166,29 @@
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/custom.js"></script>
-
+<script type="text/javascript" src="data.js"></script>
+<script>
+    var dataList = data;
+</script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+ <script>
+        new Vue({
+            el: '#Vue_component_wrapper',
+            data: {
+                DataList : [],
+            },
+            methods: {
+                getValue : function(tag_name){
+                    if (this.DataList[tag_name] !== undefined){
+                        return this.DataList[tag_name];
+                    }
+                },
+            },
+            created() {
+               this.DataList = dataList;
+            }
+        });
+    </script>
 </body>
 
 
