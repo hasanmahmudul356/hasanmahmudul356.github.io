@@ -20,8 +20,6 @@ new Vue({
             }
         },
         imageUrl : function (image_folder, image) {
-            console.log(image_folder);
-            console.log(image);
             if (image_folder && image) {
                 return this.DataList.imageBasePath+image_folder+image;
             }

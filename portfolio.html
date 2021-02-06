@@ -140,8 +140,8 @@
             <ul class="row grid">
                 <li v-for="(project, index) in DataList.projects">
                     <figure>
-                        <img :src="imageUrl(project.folder, project.thumbnail)" @click="openProjectImage(project.images)" />
-                        <div><span>{{project.project_name}}</span></div>
+                        <img :src="imageUrl(project.folder, project.thumbnail)" />
+                        <div @click="openProjectImage(project.images)"><span>{{project.project_name}}</span></div>
                     </figure>
                 </li>
             </ul>
