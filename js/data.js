@@ -170,7 +170,7 @@ var data = {
             client: 'TMSS-ICT',
             role: 'Team Member',
             technology: 'PHP, Laravel, Vue.js, SQL',
-            thumbnail: 'thumbnail.jpg',
+            thumbnail: 'thumbnail.png',
             folder: 'mikrof/',
             images: ['thumbnail.png','01.png', '02.png', '03.png', '04.png'],
             details: '',
