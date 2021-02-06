@@ -140,7 +140,7 @@
             <ul class="row grid">
                 <li v-for="(project, index) in DataList.projects">
                     <figure>
-                        <img :src="imageUrl(project.folder, project.thumbnail)" alt="Portolio Image" />
+                        <img :src="imageUrl(project.folder, project.thumbnail)" @click="openProjectImage(project.images)" />
                         <div><span>{{project.project_name}}</span></div>
                     </figure>
                 </li>
@@ -173,10 +173,10 @@
                         </figcaption>
                         <div :id="'slider'+index" class="carousel slide portfolio-slider" data-ride="carousel" data-interval="false">
                             <ol class="carousel-indicators">
-                                <li v-for="(dot, d_index) in project.images" :data-target="'#slider'+index" :data-slide-to="d_index" :class="{'active' : d_index === 0}"></li>
+                                <li v-for="(dot, d_index) in ProjectImages" :data-target="'#slider'+index" :data-slide-to="d_index" :class="{'active' : d_index === 0}"></li>
                             </ol>
                             <div class="carousel-inner">
-                                <div class="carousel-item" v-for="(image, d_index) in project.images" :class="{'active' : d_index === 0}">
+                                <div class="carousel-item" v-for="(image, d_index) in ProjectImages" :class="{'active' : d_index === 0}">
                                     <img :src="imageUrl(project.folder, image)" alt="slide 1">
                                 </div>
                             </div>
