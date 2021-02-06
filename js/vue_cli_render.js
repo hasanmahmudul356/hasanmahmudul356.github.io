@@ -2,6 +2,7 @@ new Vue({
     el: '#Vue_component_wrapper',
     data: {
         DataList: [],
+        ProjectImages : [],
         contactForm : {
             name : '',
             email : '',
@@ -10,6 +11,9 @@ new Vue({
         }
     },
     methods: {
+        openProjectImage : function(image_array){
+            this.ProjectImages = image_array;
+        },
         getValue: function (tag_name) {
             if (this.DataList[tag_name] !== undefined) {
                 return this.DataList[tag_name];
